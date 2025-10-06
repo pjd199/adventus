@@ -1,0 +1,27 @@
+[project]
+name = "adventus"
+version = "0.0.1"
+description = "A CLI for downloading Advent of Code puzzle inputs."
+authors = [{name = "Pete Dibdin"}]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "requests>=2.0.0",
+    "markdownify>=1.2.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/pjd199/adventus"
+Repository = "https://github.com/pjd199/adventus"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+adventus = "adventus.cli.main:main"
+
+[tools.adventus]
+cache-puzzle = true
+cache-answers = true
+cache-input = true
