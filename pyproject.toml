@@ -1,7 +1,7 @@
 [project]
 name = "adventus"
 version = "0.0.1"
-description = "A CLI for downloading Advent of Code puzzle inputs."
+description = "CLI puzzle input downloader and time saving tools for Advent of Code."
 authors = [{name = "Pete Dibdin"}]
 readme = "README.md"
 requires-python = ">=3.12"
