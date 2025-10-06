@@ -1,2 +1,2 @@
-# fetch-aoc
-Fetch Adevent of Code input files
+# adventus
+Fetch input files from the Advent of Code website and submit answers
