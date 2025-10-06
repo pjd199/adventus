@@ -10,7 +10,7 @@
 				"ms-python.python"
 			]
 		}
-	}
+	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
@@ -20,7 +20,7 @@
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": {
-		"update pip": "python -m pip install --upgrade pip.",
+		"update pip": "python -m pip install --upgrade pip",
 		"install package": "pip install -e .",
 	},
 
