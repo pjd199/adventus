@@ -41,4 +41,6 @@ options:
   --submit              submit the puzzle answers
 ```
 
-## 
+## Word Origin
+_adventus_ is the Latin root for the word Advent,
+which means arrival. 
