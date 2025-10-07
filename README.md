@@ -1,6 +1,6 @@
 # adventus
 
-_Adventus_ is a command line utility (CLI) for downloading puzzle input files
+_adventus_ is a command line utility (CLI) for downloading puzzle input files
 for Advent of Code (AOC). File can also be accesses within the code using the 
 fetch function. 
 
