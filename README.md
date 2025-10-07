@@ -1,7 +1,10 @@
 # adventus
 
-_adventus_ is a command line utility (CLI) for downloading puzzle input files
-for Advent of Code (AOC). File can also be accesses within the code using the 
+_adventus_ is a set of helper functions for solving Advent of Code puzzles,
+including a command line utility (CLI) for downloading puzzle input files. 
+
+## API
+Files can be accessed within the code using the 
 fetch function. 
 
 ```python
@@ -14,13 +17,13 @@ The files are cached to reduce the number of requests to the AOC server,
 as required within the 
 [AOC automation guidelines](https://www.reddit.com/r/adventofcode/wiki/faqs/automation)
 
-## Basic Usage
+## CLI Basic Usage
 
 ```sh
 adventus {day} {year} {--fetch} {--submit}
 ```
 
-## Full Usage
+## CLI Full Usage
 
 ```sh
 usage: adventus [-h] [--fetch] [--submit]
@@ -41,6 +44,6 @@ options:
   --submit              submit the puzzle answers
 ```
 
-## Word Origin
+## Name Origin
 _adventus_ is the Latin root for the word Advent,
 which means arrival. 
