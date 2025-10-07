@@ -50,7 +50,7 @@ def cache(day: int, year: int) -> None:
         if config.cache_puzzle:
             save(
                 f"# {soup.head.title.contents[0]}\n\n"
-                + f"Downloaded from {url} at {datetime.now(UTC).isoformat(timespec="seconds")}\n\n"
+                + f"{url}\n{datetime.now(UTC).isoformat(timespec="seconds")}\n\n"
                 + "\n".join(
                     markdownify(str(x), heading_style=ATX, wrap=80)
                     for x in soup.find_all("article")
