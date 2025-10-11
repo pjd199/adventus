@@ -1,1 +1,0 @@
-"""adventus.cli package."""

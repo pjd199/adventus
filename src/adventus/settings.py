@@ -24,5 +24,7 @@ class Config:
     cache_input = configuration().get("cache-input", True)
     cache_puzzle = configuration().get("cache-puzzle", False)
     cache_answers = configuration().get("cache-answers", True)
+    template = configuration().get("template", ".adventus/template.py")
+    source = configuration().get("source", "src/adventofcode/year{year:04d}/day{day:02d}.py")
 
 config = Config()

@@ -1,0 +1,14 @@
+""" Advent of Code Day {day} Year {year}. """
+
+from adventus import fetch, submit
+
+# load puzzle input file
+data = fetch({day}, {year})
+
+# solve path one
+answer = ""
+submit(answer, {day}, {year})
+
+# solve part two
+answer = ""
+submit(answer, {day}, {year})

@@ -3,8 +3,8 @@
 from argparse import ArgumentParser
 from datetime import datetime, UTC
 
-from adventus.lib.settings import config
-from adventus.lib.commands import fetch, submit
+from adventus.settings import config
+from adventus.commands import fetch, submit, template
 
 
 def main() -> int:
@@ -52,6 +52,12 @@ def main() -> int:
         default=False,
         help="submit the puzzle answers",
     )
+    parser.add_argument(
+        "--template",
+        action="store_true",
+        default=False,
+        help="create source file using the template",
+    )
     args = parser.parse_args()
 
     # fetch the input file
@@ -60,8 +66,12 @@ def main() -> int:
         print(data)
 
     # submit the answers
-    if args.submit:
-        submit(-1, args.day, args.year)
+    # if args.submit:
+    #     submit(-1, args.day, args.year)
+
+    # create source file using template
+    if args.template:
+        template(args.day, args.year)
 
     return 0
 

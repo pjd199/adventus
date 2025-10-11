@@ -2,7 +2,7 @@
 
 from requests import request
 
-from adventus.lib.settings import config
+from adventus.settings import config
 
 
 def get(url: str):

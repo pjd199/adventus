@@ -1,4 +1,4 @@
 """adventus package."""
-from adventus.lib.commands import fetch, submit
+from adventus.commands import fetch, submit, template
 
-__all__ = ["fetch", "submit"]
+__all__ = ["fetch", "submit", "template"]

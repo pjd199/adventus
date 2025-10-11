@@ -2,8 +2,8 @@
 
 from datetime import datetime, UTC
 from pathlib import Path
-from adventus.lib.settings import config
-from adventus.lib.http import get
+from adventus.settings import config
+from adventus.http import get
 
 from bs4 import BeautifulSoup
 from markdownify import ATX, markdownify  # type: ignore
