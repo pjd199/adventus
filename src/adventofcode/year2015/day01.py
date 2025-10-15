@@ -1,8 +1,8 @@
-"""Advent of Code {year:04d}.
+"""Advent of Code 2015.
 
-Day 1: {title}
+Day 1: Not Quite Lisp
 
-{url}
+https://adventofcode.com/2015/day/1
 """
 
 from adventus import Puzzle
@@ -11,7 +11,7 @@ from adventus import Puzzle
 def solve() -> None:
     """Solve the puzzle."""
     # initiate the puzzle
-    puzzle = Puzzle({day}, {year})
+    puzzle = Puzzle(1, 2015)
     data = puzzle.input
 
     # solve path one

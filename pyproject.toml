@@ -1,13 +1,13 @@
 [project]
 name = "adventus"
-version = "0.0.2"
-description = "CLI puzzle input downloader and time saving tools for Advent of Code."
+version = "0.0.3"
+description = "Advent of Code helpers, including a input downloader functions and a template engine."
 authors = [{name = "Pete Dibdin"}]
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "requests>=2.0.0",
-    "markdownify>=1.2.0"
+    "beautifulsoup4>=4.14.0",
 ]
 
 [project.urls]
@@ -19,9 +19,48 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project.scripts]
-adventus = "adventus.main:main"
+adventus = "adventus.cli:cli"
 
-[tools.adventus]
-cache-puzzle = true
-cache-answers = true
-cache-input = true
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle error
+    "F",   # pyflakes
+    "B",   # bugbear
+    "W",   # pycodestyle warning
+    "C90", # mccabe complexity
+    "I",   # isort
+    "N",   # pep8-naming
+    "D",   # pydocstyle
+    "UP",  # pyupgrade
+    "ANN", # flake8-annotations
+    "S",   # flake8-bandit
+    "BLE", # flake8-blind-except
+    "A",   # flake8-builtins
+    "C4",  # flake8-comprehensions
+    "DTZ", # flake8-datetimez
+    "ISC", # flake8-implicit-str-concat
+    "G",   # flake8-logging-format
+    "PIE", # flake8-pie
+    "T20", # flake8-print
+    "PT",  # flake8-pytest-style
+    "Q",   # flake8-quote
+    "RSE", # flake8-raise
+    "RET", # flake8-return
+    "SLF", # flake8-self
+    "SIM", # flake8-simplify
+    "ARG", # flake8-unused-arguments
+    "PTH", # flake8-use-pathlib
+    "ERA", # eradicate
+    #"PL", # pylint
+    "TRY",  # tryceratops
+    "NPY",  # numpy-specific-rules
+    "PERF", # perflint
+    "RUF",  # ruff-specific-rules
+
+]
+ignore = [
+    "B905",     # `zip()` without an explicit `strict=` parameter
+    "ANN101",   # Missing type annotation for `self` in method
+    "D413",     # Blank line in function docstring
+]
+fixable = ["ALL"]

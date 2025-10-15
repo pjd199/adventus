@@ -1,12 +1,20 @@
-from tomllib import loads
+"""System settings."""
+
+from dataclasses import dataclass
 from functools import cache
 from os import getenv
 from pathlib import Path
-from dataclasses import dataclass
+from tomllib import loads
+from typing import Any
 
 
 @cache
-def configuration():
+def configuration() -> dict[str, Any]:
+    """Load configuration from pyproject.toml, if exists.
+
+    Returns:
+        dict[str, Any]: dictionary of settings
+    """
     path = Path("pyproject.toml")
     if path.exists():
         file = loads(path.read_text())
@@ -17,14 +25,18 @@ def configuration():
 
 @dataclass(frozen=True)
 class Config:
-    url = "https://adventofcode.com"
+    """Configuration class."""
+
+    protocol = "https"
+    domain = "adventofcode.com"
     cache = configuration().get("cache", ".adventus")
     session = getenv("AOC_SESSION", "")
     user_agent = "https://github.com/pjd199/adventus"
-    cache_input = configuration().get("cache-input", True)
-    cache_puzzle = configuration().get("cache-puzzle", False)
-    cache_answers = configuration().get("cache-answers", True)
     template = configuration().get("template", ".adventus/template.py")
-    source = configuration().get("source", "src/adventofcode/year{year:04d}/day{day:02d}.py")
+    source = configuration().get(
+        "source", "src/adventofcode/year{year:04d}/day{day:02d}.py"
+    )
+    entry = configuration().get("entry", "solve")
+
 
 config = Config()
