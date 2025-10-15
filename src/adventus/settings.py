@@ -30,6 +30,7 @@ class Config:
     protocol = "https"
     domain = "adventofcode.com"
     cache = configuration().get("cache", ".adventus")
+    requests_per_minute = 10
     session = getenv("AOC_SESSION", "")
     user_agent = "https://github.com/pjd199/adventus"
     template = configuration().get("template", ".adventus/template.py")

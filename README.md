@@ -1,49 +1,52 @@
 # adventus
 
 _adventus_ is a set of helper functions for solving Advent of Code puzzles,
-including a command line utility (CLI) for downloading puzzle input files. 
+including functions for downloading input files and submitting answers.
 
-## API
-Files can be accessed within the code using the 
-fetch function. 
+## Example
 
 ```python
-from adventus import fetch
+from adventus import Puzzle
 
-input_data = fetch(day=1,year=2015)
+def solve() -> None:
+    """Solve the puzzle."""
+    # initiate the puzzle
+    puzzle = Puzzle({day}, {year})
+    data = puzzle.input
+
+    # solve path one
+    puzzle.answer_one = None
+
+    # solve part two
+    puzzle.answer_two = None
+
+
+if __name__ == "__main__":
+    solve()
 ```
 
-The files are cached to reduce the number of requests to the AOC server,
-as required within the 
-[AOC automation guidelines](https://www.reddit.com/r/adventofcode/wiki/faqs/automation)
+## AOC Server Friendly
+
+_adventus_ follows the [AOC automation guidelines](https://www.reddit.com/r/adventofcode/wiki/faqs/automation) on r/adventofcode.
+
+Specifically:
+
+-   Outbound calls are throttled to 10 per minute (http module)
+-   Once inputs are downloaded, they are cached locally (cache module)
+-   If you suspect your cached input is corrupted, you can manually delete file
+    in the cache directory (_.adventus_, by default)
+-   The HTTP User-Agent header in the settings module is set to me since I maintain this tool.
 
 ## CLI Basic Usage
 
 ```sh
-adventus {day} {year} {--fetch} {--submit}
+adventus {day} {year}
 ```
 
-## CLI Full Usage
-
-```sh
-usage: adventus [-h] [--fetch] [--submit]
-                [{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25}]
-                [{2015,2016,2017,2018,2019,2020,2021,2022,2023,2024}]
-
-Download input file from the Advent of Code website.
-
-positional arguments:
-  {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25}
-                        the day of the puzzle input to download
-  {2015,2016,2017,2018,2019,2020,2021,2022,2023,2024}
-                        the year of the puzzle input to download
-
-options:
-  -h, --help            show this help message and exit
-  --fetch               fetch the puzzle input
-  --submit              submit the puzzle answers
-```
+Automatically creates a source file from the template, runs the puzzle solver, 
+and prompts the user to submit their answers
 
 ## Name Origin
+
 _adventus_ is the Latin root for the word Advent,
-which means arrival. 
+which means arrival.

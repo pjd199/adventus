@@ -142,25 +142,53 @@ class Puzzle:
         """
         name = ["Part One", "Part Two"]
 
+        # coerce value into a string
         value = str(value)
-        if self.answers[part]:
-            if value != self.answers[part]:
-                logger.warning(
-                    "%s solved, but %s != %s", name[part], value, self.answers[part]
-                )
-                return False
-            logger.info("%s solved, your answer is %d", {name[part]}, value)
-            return True
+        # if self.answers[part]:
+        #     # already solved
+        #     if value != self.answers[part]:
+        #         logger.warning(
+        #             "%s solved, but %s != %s", name[part], value, self.answers[part]
+        #         )
+        #         return False
+        #     logger.info("%s solved, your answer is %d", {name[part]}, value)
+        #     return True
 
-        logger.info("Submitting answer for %s: %s", name[part], value)
-        soup = BeautifulSoup(
-            read_answer(self.day, self.year, part + 1, value), "html.parser"
+        # check for silly answers
+        if value == "None":
+            logger.info("Skipping %s submission while answer is %s", name[part], value)
+            return False
+
+        # check if might be from example data
+        if any(
+            value in code.string
+            for article in self._page_soup.find_all("article")
+            for code in article.find_all("code")
+        ):
+            logger.warning(
+                "Refusing to submit %s for %s - answer detected in puzzle example",
+                value,
+                name[part],
+            )
+            return False
+
+        # submit answer
+        prompt = input(
+            f"Are you sure you want to submit {value} "
+            f"as your answer to {name[part]}. (y/N)? "
         )
-        message = soup.article.p.text
-        logger.info(message)
-        correct = "That's the right answer!" in message
-        read_page(self.day, self.year, refresh=correct)
-        return correct
+        if prompt.upper() == "Y" or prompt.upper() == "YES":
+            logger.info("Submitting answer for %s: %s", name[part], value)
+            html = read_answer(self.day, self.year, part + 1, value)
+            soup = BeautifulSoup(html, "html.parser")
+            message = soup.article.p.text
+            logger.info(message)
+            correct = "That's the right answer!" in message
+            read_page(self.day, self.year, refresh=correct)
+            return correct
+
+        logger.info("User aborted answer submission")
+        return False
 
     @property
     def _page_soup(self) -> BeautifulSoup:
