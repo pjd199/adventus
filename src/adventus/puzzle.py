@@ -151,7 +151,7 @@ class Puzzle:
                     "%s solved, but %s != %s", name[part], value, self.answers[part]
                 )
                 return False
-            logger.info("%s solved, your answer is %d", {name[part]}, value)
+            logger.info("%s solved, your answer is %s", {name[part]}, value)
             return True
 
         # check for silly answers
