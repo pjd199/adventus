@@ -31,7 +31,7 @@ class Config:
     domain = "adventofcode.com"
     cache = configuration().get("cache", ".adventus")
     requests_per_minute = 10
-    session = getenv("AOC_SESSION", "")
+    session = getenv("AOC_SESSION", None)
     user_agent = "https://github.com/pjd199/adventus"
     template = configuration().get("template", ".adventus/template.py")
     source = configuration().get(

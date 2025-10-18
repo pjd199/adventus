@@ -1,6 +1,6 @@
 [project]
 name = "adventus"
-version = "0.0.5"
+version = "0.0.6"
 description = "Advent of Code helpers, including a input downloader functions and a template engine."
 authors = [{name = "Pete Dibdin"}]
 readme = "README.md"
@@ -17,7 +17,7 @@ Homepage = "https://github.com/pjd199/adventus"
 Repository = "https://github.com/pjd199/adventus"
 
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=80", "setuptools-scm>=8"]
 build-backend = "setuptools.build_meta"
 
 [project.scripts]

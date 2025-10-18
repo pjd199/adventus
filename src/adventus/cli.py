@@ -59,7 +59,7 @@ def cli() -> int:
     """
     logging.basicConfig(format=LOG_FORMAT, level=logging.DEBUG)
 
-    if not config.session:
+    if config.session is None:
         logger.critical("AOC_SESSION environment variable not set.")
         return 1
     now = datetime.now(UTC)
