@@ -1,6 +1,6 @@
 """Advent of Code {year:04d}.
 
-Day 1: {title}
+Day {5}: {title}
 
 {url}
 """
