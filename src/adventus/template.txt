@@ -14,7 +14,7 @@ def solve() -> None:
     puzzle = Puzzle({day}, {year})
     data = puzzle.input
 
-    # solve path one
+    # solve part one
     puzzle.answer_one = None
 
     # solve part two

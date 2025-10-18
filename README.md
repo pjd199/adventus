@@ -50,3 +50,7 @@ and prompts the user to submit their answers
 
 _adventus_ is the Latin root for the word Advent,
 which means arrival.
+
+## TODO
+
+* Detect exprired Session ID
