@@ -144,15 +144,15 @@ class Puzzle:
 
         # coerce value into a string
         value = str(value)
-        # if self.answers[part]:
-        #     # already solved
-        #     if value != self.answers[part]:
-        #         logger.warning(
-        #             "%s solved, but %s != %s", name[part], value, self.answers[part]
-        #         )
-        #         return False
-        #     logger.info("%s solved, your answer is %d", {name[part]}, value)
-        #     return True
+        if self.answers[part]:
+            # already solved
+            if value != self.answers[part]:
+                logger.warning(
+                    "%s solved, but %s != %s", name[part], value, self.answers[part]
+                )
+                return False
+            logger.info("%s solved, your answer is %d", {name[part]}, value)
+            return True
 
         # check for silly answers
         if value == "None":
