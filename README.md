@@ -31,7 +31,7 @@ _adventus_ follows the [AOC automation guidelines](https://www.reddit.com/r/adve
 
 Specifically:
 
--   Outbound calls are throttled to 10 per minute (http module)
+-   Outbound calls are throttled to 6 HTTP requests per minute (http module)
 -   Once inputs are downloaded, they are cached locally (cache module)
 -   If you suspect your cached input is corrupted, you can manually delete file
     in the cache directory (_.adventus_, by default)
