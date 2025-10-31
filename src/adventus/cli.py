@@ -11,7 +11,6 @@ from adventus.puzzle import Puzzle
 from adventus.settings import config
 
 logger = logging.getLogger(__name__)
-LOG_FORMAT = "%(levelname)s: %(message)s"
 
 
 def template(day: int, year: int) -> None:
@@ -57,11 +56,6 @@ def cli() -> int:
     Returns:
         int: the return code, usually 0.
     """
-    logging.basicConfig(format=LOG_FORMAT, level=logging.DEBUG)
-
-    if config.session is None:
-        logger.critical("AOC_SESSION environment variable not set.")
-        return 1
     now = datetime.now(UTC)
     days = list(range(1, 26))
     years = list(range(2015, now.year + 1 if now.month == 12 else now.year))
@@ -85,7 +79,29 @@ def cli() -> int:
         default=days[-1],
         help="the day of the puzzle input to download",
     )
+    logging_group = parser.add_mutually_exclusive_group()
+    logging_group.add_argument("-q", "--quiet", "--silent", action="store_true", help="quiet mode")
+    logging_group.add_argument(
+        "-v", "--verbose", action="store_true", help="verbose mode"
+    )
     args = parser.parse_args()
+
+    # configure logging
+    logging.basicConfig(
+        format="%(levelname)s: %(message)s",
+        level=(
+            logging.WARNING
+            if args.quiet
+            else logging.DEBUG
+            if args.verbose
+            else logging.INFO
+        ),
+    )
+
+    # check for session
+    if config.session is None:
+        logger.critical("AOC_SESSION environment variable not set.")
+        return 1
 
     template(args.day, args.year)
     execute(args.day, args.year)
