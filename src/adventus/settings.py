@@ -18,8 +18,8 @@ def configuration() -> dict[str, Any]:
     path = Path("pyproject.toml")
     if path.exists():
         file = loads(path.read_text())
-        if "tools" in file and "adventus" in file["tools"]:
-            return file["tools"]["adventus"]
+        if "tool" in file and "adventus" in file["tool"]:
+            return file["tool"]["adventus"]
     return {}
 
 
