@@ -95,7 +95,7 @@ class Puzzle:
         Returns:
             str | None: the answer
         """
-        return self._answers[0]
+        return self.answers[0]
 
     @property
     def answer_two(self) -> str | None:
@@ -104,7 +104,7 @@ class Puzzle:
         Returns:
             str | None: the answer
         """
-        return self._answers[1]
+        return self.answers[1]
 
     @answer_one.setter
     def answer_one(self, value: int | str | None) -> bool:
