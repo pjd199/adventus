@@ -80,7 +80,7 @@ def read_answer(day: int, year: int, level: int, answer: str) -> str:
         str: the submission response
     """
     url = f"{config.protocol}://{config.domain}/{year}/day/{day}/answer"
-    local = (
+    local = Path(
         f"{config.cache}/{year:04d}/{day:02d}/answer/{level}/{quote_plus(answer)}.html"
     )
     return _read(url, local, {"level": level, "answer": answer})
