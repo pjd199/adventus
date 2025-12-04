@@ -164,6 +164,7 @@ class Puzzle:
             value in code.string
             for article in self._page_soup.find_all("article")
             for code in article.find_all("code")
+            if code.string
         ):
             logger.warning(
                 "Refusing to submit %s for %s - answer detected in puzzle example",
