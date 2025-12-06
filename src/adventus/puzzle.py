@@ -106,8 +106,7 @@ class Puzzle:
         """
         return self.answers[1]
 
-    @answer_one.setter
-    def answer_one(self, value: int | str | None) -> bool:
+    def submit_answer_one(self, value: int | str | None) -> bool:
         """Submit answer one.
 
         Args:
@@ -118,8 +117,7 @@ class Puzzle:
         """
         return self._submit_answer(0, value)
 
-    @answer_two.setter
-    def answer_two(self, value: int | str | None) -> bool:
+    def submit_answer_two(self, value: int | str | None) -> bool:
         """Submit answer two.
 
         Args:
