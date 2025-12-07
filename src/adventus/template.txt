@@ -15,10 +15,10 @@ def solve() -> None:
     data = puzzle.input
 
     # solve part one
-    puzzle.answer_one = None
+    puzzle.submit_answer_one(None)
 
     # solve part two
-    puzzle.answer_two = None
+    puzzle.submit_answer_two(None)
 
 
 if __name__ == "__main__":

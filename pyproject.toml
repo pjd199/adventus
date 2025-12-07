@@ -1,6 +1,6 @@
 [project]
 name = "adventus"
-version = "0.0.19"
+version = "0.0.20"
 description = "Advent of Code helpers, including a input downloader functions and a template engine."
 authors = [{name = "Pete Dibdin"}]
 readme = "README.md"
